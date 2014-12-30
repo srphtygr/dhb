@@ -13,11 +13,15 @@ printgrid(grid)
   return 0;
 }
 
-xplor(grid)
+xplor(y,x,grid)
+   int x,y;
    char grid[15][25];
 {
-  grid[1][1]='@';
+  grid[y][x]='@';
+  if(grid[y+1][x]==' ')
+    xplor(y+1,x,grid);
   return 0;
+  printgrid(grid);
 }
 
 main() {
@@ -30,8 +34,10 @@ main() {
 
   while(fgets(grid[y++],80,fp))
     ;
+  printf("I've just read in this maze:\n");
   printgrid(grid);
-  xplor(grid);
+  printf("So let's start!\n");
+  xplor(1,1,grid);
   printgrid(grid);
 
   printf("Welp, see ya.\n");
