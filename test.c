@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 printgrid(grid)
   char grid[15][25];
@@ -17,11 +18,29 @@ xplor(y,x,grid)
    int x,y;
    char grid[15][25];
 {
+  sleep(1);
+/*mark our spot@*/
   grid[y][x]='@';
-  if(grid[11,19]=="@")
-    return 1;
+  printgrid(grid);
+/*check if we are at the end of the maze*/
+  if(y==11 && x==19)
+    exit(0);
+/*check if we can go south*/
   if(grid[y+1][x]==' ')
     xplor(y+1,x,grid);
+
+/*check if we can go east*/
+  if(grid[y][x+1]==' ')
+    xplor(y,x+1,grid);
+
+/*check if we can go north*/
+  if(grid[y-1][x]==' ')
+    xplor(y-1,x,grid);
+
+/*check if we can go west*/
+  if(grid[y][x-1]==' ')
+    xplor(y,x-1,grid);
+  grid[y][x]='&';
   return 0;
 }
 
