@@ -16,7 +16,7 @@ printgrid(grid)
 xplor(grid)
    char grid[15][25];
 {
-  grid[1][2]="@";
+  grid[1][2]='@';
   return 0;
 }
 
