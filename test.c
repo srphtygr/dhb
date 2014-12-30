@@ -14,7 +14,6 @@ printgrid(grid,maxy,maxx)
       printf("%c",grid[y][x]);
     printf("\n");
     }
-sleep(1);
   return 0;
 }
 
@@ -25,6 +24,7 @@ xplor(y,x,grid,maxy,maxx)
 {
 /*mark our spot@*/
   grid[y][x]='@';
+  printf("\033c");
   printgrid(grid,maxy,maxx);
   printf("We're at %d vertical and %d horizontal.\n",y,x);
 /*check if we are at the end of the maze*/
@@ -51,7 +51,6 @@ xplor(y,x,grid,maxy,maxx)
   grid[y][x]='&';
   return 0;
 }
-
 main() {
   int x=0,y=0,maxy=0,maxx=0;
   FILE * fp;
@@ -78,3 +77,4 @@ main() {
   fclose(fp);
   return 0;
 }
+
