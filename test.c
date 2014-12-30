@@ -18,10 +18,11 @@ xplor(y,x,grid)
    char grid[15][25];
 {
   grid[y][x]='@';
+  if(grid[11,19]=="@")
+    return 1;
   if(grid[y+1][x]==' ')
     xplor(y+1,x,grid);
   return 0;
-  printgrid(grid);
 }
 
 main() {
