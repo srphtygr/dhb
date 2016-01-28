@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 printgrid(grid,maxy,maxx)
   char grid[69][135];
@@ -27,6 +28,7 @@ xplor(y,x,grid,maxy,maxx)
   printf("\033c");
   printgrid(grid,maxy,maxx);
   printf("We're at %d vertical and %d horizontal.\n",y,x);
+  usleep(60000);
 /*check if we are at the end of the maze*/
   if(y==maxy && x==maxx)
     {
